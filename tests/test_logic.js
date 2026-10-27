@@ -1,0 +1,23 @@
+const assert=require('node:assert/strict');
+const {splitBill,candidates,parseNumber,bestBillGuesses}=require('../app/src/main/assets/logic.js');
+function approx(a,b){assert.ok(Math.abs(a-b)<0.000001,`${a} != ${b}`)}
+const r=splitBill({month:'2026-10',kwh:'454',payable:'136.95',zprev:'1420.9',zcurr:'1631.7',sprev:'650.6',scurr:'765.5'});
+assert.equal(r.z,210.8);approx(r.s,114.9);approx(r.owner,128.3);
+assert.equal(r.zrm,63.59);assert.equal(r.srm,34.66);assert.equal(r.orm,38.70);
+approx(r.zrm+r.srm+r.orm,136.95);
+const old=splitBill({month:'2026-09',kwh:558,payable:205.53,zprev:1124.2,zcurr:1420.9,sprev:505.2,scurr:650.6});
+assert.equal(old.zrm,109.28);assert.equal(old.srm,53.56);assert.equal(old.orm,42.69);
+assert.throws(()=>splitBill({month:'2026-10',kwh:2,payable:4,zprev:0,zcurr:5,sprev:0,scurr:0}),/melebihi/);
+assert.throws(()=>splitBill({month:'2026-10',kwh:100,payable:4,zprev:2,zcurr:1,sprev:0,scurr:1}),/kurang/);
+assert.throws(()=>splitBill({month:'2026-10',kwh:0,payable:4,zprev:0,zcurr:1,sprev:0,scurr:1}),/lebih/);
+assert.throws(()=>splitBill({month:'2026-10',kwh:100,payable:'',zprev:0,zcurr:1,sprev:0,scurr:1}),/isi/);
+const cent=splitBill({month:'2026-10',kwh:100,payable:0.01,zprev:0,zcurr:49,sprev:0,scurr:49});
+assert.equal(+(cent.zrm+cent.srm+cent.orm).toFixed(2),0.01);
+assert.ok([cent.zrm,cent.srm,cent.orm].every(x=>x>=0));
+assert.equal(parseNumber('RM136.95'),136.95);
+assert.equal(parseNumber('1,631.7'),1631.7);
+assert.equal(parseNumber('1.631,7'),1631.7);
+assert.deepEqual(candidates('1631.7 kWh\nRM 136.95').map(x=>x.value),[1631.7,136.95]);
+const guesses=bestBillGuesses('Jumlah Penggunaan (kWh) 454\nJumlah Perlu Dibayar RM136.95');
+assert.equal(guesses.kwh,454);assert.equal(guesses.payable,136.95);
+console.log('All calculation and OCR-parser tests passed.');

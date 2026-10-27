@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f3143">
+  <title>Bil Elektrik 3 Rumah · OCR</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Roboto,'Segoe UI',sans-serif;color:#123445;background:#f4f8fa;font-size:15px}
+    *{box-sizing:border-box}body{margin:0}header{padding:22px 18px 19px;background:linear-gradient(135deg,#0f3143,#135c68);color:white}
+    header .eyebrow{font-size:11px;letter-spacing:1.3px;opacity:.75;text-transform:uppercase;font-weight:800}
+    header h1{font-size:25px;margin:5px 0 4px;line-height:1.16}header p{font-size:13px;opacity:.86;margin:6px 0 0}
+    main{max-width:750px;margin:0 auto;padding:15px 13px 60px}.panel{border:1px solid #ddebee;border-radius:18px;padding:17px;background:#fff;box-shadow:0 3px 18px #0d364710;margin:0 0 14px}
+    h2{font-size:17px;line-height:1.4;margin:0 0 8px}.sub{color:#607887;font-size:12px;line-height:1.4;margin:0 0 10px}
+    label{font-size:13px;font-weight:700;margin:13px 0 6px;display:block}input:not([type=file]){width:100%;border:1px solid #bdd0d7;border-radius:10px;padding:12px;font:inherit;background:white;color:#132f40;min-width:0}
+    input:focus{outline:2px solid #17a390;border-color:transparent}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .actions{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0 4px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;border:0;border-radius:10px;padding:12px 14px;background:#04796c;color:#fff;font:inherit;font-weight:750;cursor:pointer;min-height:43px}
+    .btn.alt{color:#0c6258;background:#e1f1ee}.btn.ghost{color:#356173;background:#eef3f6}.btn.small{min-height:35px;font-size:12px;padding:7px 11px}.btn:focus-visible{outline:3px solid #88dacf;outline-offset:2px}
+    .hint{font-size:12px;color:#5b7885;line-height:1.55}.notice{font-size:12px;line-height:1.6;padding:12px;border-radius:10px;color:#1b665c;background:#e4f6f0}
+    .billIcon{font-size:21px;margin-right:6px}.ocr-zone{border-radius:11px;background:#f1f8f7;padding:10px;margin:9px 0 2px;border:1px solid #dcece9}
+    .ocr-status{font-size:12px;color:#4c6d72;margin-top:5px}.ocr-status.working{color:#9a6200}.ocr-status.error{color:#9b3434}
+    .ocr-results{margin:10px 0 0;padding:10px;border-radius:10px;border:1px solid #c9dfdc;background:white}.ocr-results[hidden]{display:none}
+    .chipline{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.chip{font:inherit;font-size:12px;color:#14594f;background:#e8f5f0;border:1px solid #aad3c8;padding:8px;border-radius:9px;font-weight:750}
+    .chip.bill{background:#e9f0f7;color:#264b70;border-color:#c7d8e9}.ocr-results strong{font-size:12px}.ocr-results details{margin-top:9px;font-size:12px;color:#526976}
+    pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:180px;overflow:auto;font:11px/1.4 monospace;background:#f6f9fa;border-radius:7px;padding:8px;color:#304f5b}
+    .result{display:none}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #e6ecee}.row strong{font-size:19px;color:#11384a}.row small{color:#66818c}
+    .row.total{font-weight:800;border-bottom:0}.row.total strong{color:#04796c}.msg{display:none;border-radius:11px;padding:13px;margin:0 0 14px;font-size:13px;background:#ffeded;color:#a11e26}
+    .history-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e5edef;gap:12px}.history-item:last-child{border:0}.history-item small{color:#627b83}
+    .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}.d-z{background:#4185cf}.d-s{background:#3cb784}.d-m{background:#e7a54a}
+    footer{margin:22px 4px 0;font-size:12px;color:#70838b;text-align:center}#toast{display:none;position:fixed;bottom:25px;left:50%;transform:translateX(-50%);padding:12px 17px;border-radius:10px;background:#173947;color:white;max-width:92%;box-shadow:0 4px 22px #0024;z-index:3;font-size:13px}
+    @media(max-width:350px){.grid2{gap:7px}.panel{padding:13px}.btn.small{padding:7px}}
+  </style>
+</head>
+<body>
+<header><div class="eyebrow">Kalkulator Peribadi · OCR Offline</div><h1>⚡ Bil Elektrik<br>3 Rumah</h1><p>Zul · Saldi · Puan Maznah</p></header>
+<main>
+<section class="panel">
+  <h2>🧾 Bil Utama Sabah Electricity</h2>
+  <p class="sub">Imbas gambar bil, kemudian semak dan betulkan angka sebelum mengira.</p>
+  <label for="month">Bulan bil</label><input id="month" type="month">
+  <div class="grid2">
+    <div><label for="kwh">Jumlah penggunaan (kWh)</label><input id="kwh" type="number" min="0" step="0.001" placeholder="454"></div>
+    <div><label for="payable">Jumlah perlu dibayar (RM)</label><input id="payable" type="number" min="0" step="0.01" placeholder="136.95"></div>
+  </div>
+  <p class="hint">Gunakan <strong>Jumlah Perlu Dibayar</strong> selepas kredit/lebihan bayar, bukan semestinya amaun caj semasa.</p>
+  <div class="ocr-zone">
+    <strong>📷 OCR bil elektrik</strong>
+    <div class="actions"><button class="btn small" onclick="scan('bill','camera')">📷 Ambil gambar</button><button class="btn alt small" onclick="scan('bill','gallery')">🖼️ Pilih gambar</button></div>
+    <div class="ocr-status" id="status-bill">Pilih gambar bil untuk imbas angka.</div>
+    <div class="ocr-results" id="ocr-bill" hidden></div>
+  </div>
+</section>
+<section class="panel"><h2><span class="dot d-z"></span>Zul — Mini Meter Kiri</h2>
+  <div class="grid2"><div><label for="zprev">Bacaan sebelum (kWh)</label><input id="zprev" type="number" min="0" step="0.001" placeholder="1420.9"></div><div><label for="zcurr">Bacaan terkini (kWh)</label><input id="zcurr" type="number" min="0" step="0.001" placeholder="1631.7"></div></div>
+  <div class="ocr-zone"><strong>Imbas meter kiri</strong><p class="hint">Pilih bacaan yang hendak diimbas.</p>
+    <label>Bacaan sebelum</label><div class="actions"><button class="btn small" onclick="scan('zprev','camera')">📷 Kamera</button><button class="btn alt small" onclick="scan('zprev','gallery')">🖼️ Galeri</button></div><div class="ocr-status" id="status-zprev"></div><div class="ocr-results" id="ocr-zprev" hidden></div>
+    <label>Bacaan terkini</label><div class="actions"><button class="btn small" onclick="scan('zcurr','camera')">📷 Kamera</button><button class="btn alt small" onclick="scan('zcurr','gallery')">🖼️ Galeri</button></div><div class="ocr-status" id="status-zcurr"></div><div class="ocr-results" id="ocr-zcurr" hidden></div>
+  </div>
+</section>
+<section class="panel"><h2><span class="dot d-s"></span>Saldi — Mini Meter Kanan</h2>
+  <div class="grid2"><div><label for="sprev">Bacaan sebelum (kWh)</label><input id="sprev" type="number" min="0" step="0.001" placeholder="650.6"></div><div><label for="scurr">Bacaan terkini (kWh)</label><input id="scurr" type="number" min="0" step="0.001" placeholder="765.5"></div></div>
+  <div class="ocr-zone"><strong>Imbas meter kanan</strong>
+    <label>Bacaan sebelum</label><div class="actions"><button class="btn small" onclick="scan('sprev','camera')">📷 Kamera</button><button class="btn alt small" onclick="scan('sprev','gallery')">🖼️ Galeri</button></div><div class="ocr-status" id="status-sprev"></div><div class="ocr-results" id="ocr-sprev" hidden></div>
+    <label>Bacaan terkini</label><div class="actions"><button class="btn small" onclick="scan('scurr','camera')">📷 Kamera</button><button class="btn alt small" onclick="scan('scurr','gallery')">🖼️ Galeri</button></div><div class="ocr-status" id="status-scurr"></div><div class="ocr-results" id="ocr-scurr" hidden></div>
+  </div>
+</section>
+<div class="msg" id="error" role="alert"></div>
+<div class="actions" style="margin-bottom:15px"><button class="btn" onclick="calculate()">✓ Kira Pembahagian</button><button class="btn ghost" onclick="clearForm()">Kosongkan</button></div>
+<section id="results" class="panel result"><h2>💰 Keputusan pembahagian</h2><div id="resultRows"></div><div id="resultInfo" class="notice" style="margin-top:12px"></div>
+  <div class="actions"><button class="btn small" onclick="saveRecord()">Simpan rekod</button><button class="btn alt small" onclick="shareResult()">Kongsi WhatsApp</button><button class="btn ghost small" onclick="copyResult()">Salin</button></div>
+</section>
+<section class="panel"><h2>🕒 Sejarah rekod</h2><div id="history"></div><p class="hint">Hanya angka dan keputusan disimpan dalam telefon. Gambar tidak disimpan atau dihantar ke pelayan.</p></section>
+<p class="notice">🔒 <strong>Privasi:</strong> OCR memproses gambar pada peranti menggunakan model ML Kit terbina dalam. Tiada pendaftaran, internet atau kredit diperlukan untuk membaca gambar selepas APK dipasang.</p>
+<footer>Bil Elektrik 3 Rumah · Versi 2.0 OCR · Untuk kegunaan sendiri</footer>
+</main>
+<div id="toast" role="status"></div>
+<script src="logic.js"></script>
+<script>
+'use strict';
+const id = name => document.getElementById(name);
+const inputIds = ['month','kwh','payable','zprev','zcurr','sprev','scurr'];
+const ocrFields = ['bill','zprev','zcurr','sprev','scurr'];
+const dbKey = 'bil3rumah_records_v1';
+let records = [], current = null;
+let oldId = null;
+const fmtMoney = n => 'RM' + Number(n).toFixed(2);
+const fmt = n => Number(n).toLocaleString('ms-MY',{maximumFractionDigits:3});
+const two = n => String(n).padStart(2,'0');
+const d = new Date(); id('month').value = `${d.getFullYear()}-${two(d.getMonth()+1)}`;
+try { const v=JSON.parse(localStorage.getItem(dbKey)||'[]'); records=Array.isArray(v)?v:[]; } catch (_) { records=[]; }
+records.sort((a,b)=>String(b.month).localeCompare(String(a.month)));
+if (records.length) {id('zprev').value=records[0].zcurr ?? '';id('sprev').value=records[0].scurr ?? '';}
+function toast(message){const e=id('toast');e.textContent=message;e.style.display='block';setTimeout(()=>e.style.display='none',3200);}
+function fail(message){const e=id('error');e.textContent=message;e.style.display='block';e.scrollIntoView({behavior:'smooth',block:'center'});}
+function calculate(){
+  id('error').style.display='none';id('results').style.display='none';
+  const v={};for(const field of inputIds)v[field]=id(field).value;
+  try {current=BilLogic.splitBill(v);}catch(ex){current=null;fail(ex.message);return;}
+  const rows=[['🔵 Zul',current.z,current.zrm],['🟢 Saldi',current.s,current.srm],['🟠 Puan Maznah',current.owner,current.orm]];
+  id('resultRows').replaceChildren();
+  for(const [name, kwh, amount] of rows){
+    const row=document.createElement('div');row.className='row';
+    const left=document.createElement('span');left.textContent=name;
+    const small=document.createElement('small');small.textContent='\n'+fmt(kwh)+' kWh';small.style.whiteSpace='pre';left.append(small);
+    const strong=document.createElement('strong');strong.textContent=fmtMoney(amount);
+    row.append(left,strong);id('resultRows').append(row);
+  }
+  const totalRow=document.createElement('div');totalRow.className='row total';
+  const totalLabel=document.createElement('span');totalLabel.textContent='Jumlah perlu dibayar';
+  const totalAmount=document.createElement('strong');totalAmount.textContent=fmtMoney(current.payable);
+  totalRow.append(totalLabel,totalAmount);id('resultRows').append(totalRow);
+  id('resultInfo').textContent='Jumlah penggunaan: '+fmt(current.kwh)+' kWh. Penggunaan Puan Maznah: '+fmt(current.owner)+' kWh. Jumlah bayaran tepat '+fmtMoney(current.payable)+'.';
+  id('results').style.display='block';id('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function resultText(){return !current?'':`Pembahagian Bil Elektrik (${current.month})\n🔵 Zul → ${fmtMoney(current.zrm)} (${fmt(current.z)} kWh)\n🟢 Saldi → ${fmtMoney(current.srm)} (${fmt(current.s)} kWh)\n🟠 Puan Maznah → ${fmtMoney(current.orm)} (${fmt(current.owner)} kWh)\nJumlah = ${fmtMoney(current.payable)} ✅`;}
+function saveRecord(){if(!current)return;records=records.filter(r=>r.month!==current.month);records.unshift({...current});records.sort((a,b)=>b.month.localeCompare(a.month));try{localStorage.setItem(dbKey,JSON.stringify(records));renderHistory();toast('Rekod berjaya disimpan.');}catch(ex){toast('Simpanan gagal. Semak ruang peranti.')}}
+function shareResult(){if(!current)return;const t=resultText();if(window.AndroidOCR){AndroidOCR.shareText(t);}else if(navigator.share){navigator.share({text:t}).catch(()=>{});}else{navigator.clipboard?.writeText(t).then(()=>toast('Disalin untuk WhatsApp.')).catch(()=>window.prompt('Salin dan hantar:',t));}}
+function copyResult(){if(!current)return;const t=resultText();if(window.AndroidOCR){AndroidOCR.copyText(t);}else if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).then(()=>toast('Keputusan disalin.')).catch(()=>window.prompt('Salin:',t));}else{window.prompt('Salin:',t);}}
+function clearForm(){for(const f of inputIds)if(f!=='month')id(f).value='';current=null;id('results').style.display='none';id('error').style.display='none';}
+function loadRecord(i){const r=records[i];if(!r)return;for(const f of inputIds)id(f).value=r[f]??'';window.scrollTo({top:0,behavior:'smooth'});toast('Rekod dimuatkan. Tekan Kira untuk mengira semula.');}
+function deleteRecord(i){if(!confirm('Padam rekod '+records[i].month+'?'))return;records.splice(i,1);localStorage.setItem(dbKey,JSON.stringify(records));renderHistory();}
+function renderHistory(){id('history').replaceChildren();if(!records.length){id('history').textContent='Belum ada rekod.';return;}
+records.forEach((r,i)=>{const row=document.createElement('div');row.className='history-item';const left=document.createElement('div');const title=document.createElement('strong');title.textContent=r.month;const small=document.createElement('small');small.textContent='\n'+fmtMoney(r.payable)+' · '+fmt(r.kwh ?? r.total)+' kWh';small.style.whiteSpace='pre';left.append(title,small);
+const buttons=document.createElement('div');buttons.className='actions';const open=document.createElement('button');open.className='btn alt small';open.textContent='Buka';open.onclick=()=>loadRecord(i);const del=document.createElement('button');del.className='btn ghost small';del.textContent='Padam';del.onclick=()=>deleteRecord(i);buttons.append(open,del);row.append(left,buttons);id('history').append(row);});}
+function scan(field, source){if(!ocrFields.includes(field))return;
+ if(!window.AndroidOCR){toast('Fungsi OCR tersedia dalam aplikasi Android, bukan fail HTML di pelayar.');return;}
+ id('status-'+field).className='ocr-status working';id('status-'+field).textContent='Menunggu gambar dan memproses OCR…';id('ocr-'+field).hidden=true;
+ AndroidOCR.scan(field,source);
+}
+function chip(label, field, value, css){const b=document.createElement('button');b.className='chip '+(css||'');b.textContent=label;b.onclick=()=>{id(field).value=value;id(field).dispatchEvent(new Event('input'));id('status-'+(field==='kwh'||field==='payable'?'bill':field)).textContent='✓ Bacaan '+fmt(value)+' telah dipilih. Sila semak sebelum mengira.';toast('Nilai dimasukkan: '+fmt(value));};return b;}
+function renderOcr(field, text){const host=id('ocr-'+field);host.hidden=false;host.replaceChildren();const raw=String(text||'');const nums=BilLogic.candidates(raw);
+ const desc=document.createElement('strong');desc.textContent='Angka dikesan ('+nums.length+') · Ketik angka yang betul:';host.append(desc);
+ if(field==='bill'){
+  const guesses=BilLogic.bestBillGuesses(raw);
+  const message=document.createElement('div');message.className='hint';message.textContent='Untuk bil utama, pilih kWh atau amaun RM secara berasingan. Pastikan jumlah perlu dibayar ialah selepas kredit.';host.append(message);
+  const rowK=document.createElement('div');rowK.className='chipline';
+  const labelK=document.createElement('strong');labelK.textContent='Kegunaan (kWh):';host.append(labelK);
+  for(const item of nums){rowK.append(chip((guesses.kwh===item.value?'★ ':'')+item.value+' kWh','kwh',item.value));}host.append(rowK);
+  const labelP=document.createElement('strong');labelP.textContent='Jumlah perlu dibayar (RM):';host.append(labelP);
+  const rowP=document.createElement('div');rowP.className='chipline';
+  for(const item of nums){rowP.append(chip((guesses.payable===item.value?'★ ':'')+fmtMoney(item.value),'payable',item.value,'bill'));}host.append(rowP);
+  if(guesses.kwh!==null || guesses.payable!==null){const s=document.createElement('p');s.className='hint';s.textContent='★ = kemungkinan daripada label bil. Belum diisi automatik: ketik pilihan yang tepat.';host.append(s);}
+ } else {
+  const row=document.createElement('div');row.className='chipline';for(const item of nums){row.append(chip(item.value+' kWh',field,item.value));}host.append(row);
+  if(nums.length===1 && nums[0].value>0){id(field).value=nums[0].value;const p=document.createElement('p');p.className='hint';p.textContent='✓ Satu bacaan sahaja dikesan dan telah diisi. Sila sahkan.';host.append(p);}
+ }
+ if(!nums.length){const p=document.createElement('p');p.className='hint';p.textContent='Tiada angka jelas dikesan. Cuba gambar lebih dekat, tanpa silau, atau isi manual.';host.append(p);}
+ const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='Lihat teks asal OCR';const pre=document.createElement('pre');pre.textContent=raw||'(Tiada teks dikesan)';details.append(summary,pre);host.append(details);
+}
+window.BilOCR={
+ receive(field,raw){if(!ocrFields.includes(field))return;id('status-'+field).className='ocr-status';id('status-'+field).textContent=raw.trim()?'OCR selesai. Semak bacaan sebelum guna.':'OCR tidak menemui teks. Boleh isi manual.';renderOcr(field,raw);},
+ failed(field,message){if(!ocrFields.includes(field))return;id('status-'+field).className='ocr-status error';id('status-'+field).textContent=message;},
+ cancelled(field){if(!ocrFields.includes(field))return;id('status-'+field).className='ocr-status';id('status-'+field).textContent='Pemilihan gambar dibatalkan.';}
+};
+renderHistory();
+</script>
+</body></html>
